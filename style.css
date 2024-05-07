@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: rgb(228, 228, 228);
+}
+.container{
+   max-width: 1200px;
+   width: 95%;
+   
+}
+.image-list{
+    display: grid;
+    gap: 10px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    grid-template-columns: repeat(10 , 1fr);
+}
+.image-list::-webkit-scrollbar{
+    display: none;
+}
+.image-list .image-item{
+    width: 260px;
+    height: 380px;
+    object-fit: cover;
+}
+.scroll-container{
+    margin-top: 11px;
+    height: 10px;
+    display: flex;
+    align-items: center;
+}
+.scroll-path{
+    height: 2px;
+    background-color: rgb(192, 192, 192);
+    width: 100%;
+    position: relative;
+    border-radius: 4px;
+}
+.scroll-thumb{
+    height:100%;
+    background-color: rgb(7, 7, 7);
+    width: 50%;
+    position: absolute;
+    cursor: grab;
+    border-radius: inherit;
+}
+.scroll-thumb::after{
+    content: "";
+    position: absolute;
+    left: 0;right: 0;
+    top: -10px;
+    bottom: -10px;
+}
+.scroll-container:hover .scroll-path{
+    height: 5px;
+}
+.scroll-thumb:active  .scroll-path{
+    height:10px;
+}
+.scroll-thumb:active {
+    cursor: grabbing;
+    height: 7px;
+    top: -2px;
+}
+.slide-wrapper{
+    position: relative;
+}
+.slide-wrapper button{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background-color: rgb(12, 12, 12);
+    color: rgb(231, 231, 231);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+bottom: 170px;
+cursor: pointer;
+}
+.slide-wrapper button:hover{
+    background-color: rgb(36, 36, 36);
+}
+#left{
+    left:-20px;
+    display: none;
+}
+#right{
+    right: -20px;
+}
+
+@media (max-width:1024px){
+    .slide-wrapper button{
+        display: none!important;
+    }
+    .scroll-thumb{
+        width: 20%;
+    }
+}
